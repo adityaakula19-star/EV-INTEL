@@ -89,16 +89,31 @@ Once running:
 
 ---
 
-## 🚢 Deploying to GitHub
+## 🚢 Deployment
 
-To push this repository to GitHub:
+### 1. GitHub Repository
+Repository: [https://github.com/adityaakula19-star/EV-INTEL](https://github.com/adityaakula19-star/EV-INTEL)
 
-1. Create a new repository on [GitHub](https://github.com/new) (e.g. `ev-adoption-intelligence`). Leave it empty (without initializing README or .gitignore).
-2. Run the following commands from the root directory:
+To push changes:
 ```bash
 git add .
-git commit -m "Initial commit: EV Adoption Intelligence backend"
-git branch -M main
-git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>.git
-git push -u origin main
+git commit -m "Update application"
+git push
 ```
+
+### 2. Live Cloud Deployment (Render - Free)
+This repository includes a `render.yaml` blueprint for automatic deployment on Render:
+
+1. Sign up / Log in to [Render](https://dashboard.render.com/).
+2. Click **New +** → **Blueprint**.
+3. Connect your GitHub account and select **`adityaakula19-star/EV-INTEL`**.
+4. Set your environment variable:
+   - `LLM_API_KEY`: *(your LLM API key)*
+5. Click **Apply**. Render will build and deploy the API with a free public URL (e.g., `https://ev-adoption-intelligence.onrender.com`).
+
+### 3. Railway / Other Cloud Hosts
+You can also deploy directly via [Railway](https://railway.app/):
+1. Create a new project on Railway and select **Deploy from GitHub repo**.
+2. Select `EV-INTEL`. Railway will detect the included `Dockerfile` and `Procfile`.
+3. Add `LLM_API_KEY` under the service **Variables** tab.
+

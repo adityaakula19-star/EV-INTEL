@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ev-adoption-intelligence
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_BASE_URL
+        value: https://api.openai.com/v1
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: DATA_PATH
+        value: data/raw/EV_Adoption_Dataset_Recleaned.xlsx
